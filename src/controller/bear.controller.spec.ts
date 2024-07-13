@@ -75,8 +75,8 @@ describe('BearController', () => {
         expect(bears[0]).toEqual('Grizzly');
     });
 
-    //Tests for by-color
-    it('by-color with empty color parameter should raise error', async () => {
+     //Tests for by-color
+     it('by-color with empty color parameter should raise error', async () => {
         try {
           await bearController.getBearsByColor(' ');
         } catch (error) {
