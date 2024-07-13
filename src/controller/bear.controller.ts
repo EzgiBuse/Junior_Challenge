@@ -22,7 +22,7 @@ export class BearController {
     }
 
     @Get('by-color/:color')
-async getBearsByColor(@Param('color') color: string): Promise<string[]> {
+    async getBearsByColor(@Param('color') color: string): Promise<string[]> {
     if (!color || color.trim() === '') {
         this.logger.error('Color parameter is required.');
         throw new BadRequestException('Color parameter is required.');
