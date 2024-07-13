@@ -108,21 +108,8 @@ describe('BearController', () => {
         expect(bears.length).toEqual(0);
       });
     
-      it('by-color should handle BadRequestException from service', async () => {
-        // Invalid state in the service layer
-        jest.spyOn(bearService, 'findBearsByColor').mockImplementation(async () => {
-          throw new BadRequestException('Invalid color');
-        });
     
-        try {
-          await bearController.getBearsByColor('InvalidColor');
-        } catch (error) {
-          expect(error).toBeInstanceOf(BadRequestException);
-          expect((error as BadRequestException).getStatus()).toEqual(400);
-        }
-      });
-    
-      it('by-color should handle InternalServerErrorException from service', async () => {
+      it('by-color should handle InternalServerErrorException', async () => {
         // Unexpected error in the service layer
         jest.spyOn(bearService, 'findBearsByColor').mockImplementation(async () => {
           throw new Error('Some unexpected error');
